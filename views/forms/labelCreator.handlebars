@@ -1,0 +1,89 @@
+
+<br>
+
+<div class="container">
+
+
+{{!-- FORM --}}
+    <form action="/createLabels" method="post">
+        <div class="row">
+
+            {{! First Card }}
+            <div class="col-sm mb-4">
+                <div class="card h-100 ">
+                    <div class="card-header">
+                        Work Order Information
+                    </div>
+
+                    <div class="card-body ">
+
+                        <label for="Description" class="font-weight-bold">Description :</label>
+                        <input required type="text" name="Description" class="form-control font-weight-bold text-success" value="{{Description}}" />
+                        <br />
+
+                        <label for="ItemNumber" class="font-weight-bold">Work Order / Item
+                            Number :</label>
+                        <input required type="text" name="ItemNumber" class="form-control font-weight-bold text-success" value="{{'Work Order #'}}-{{itemNumberShort}}" />
+
+                        <br />
+
+                        <label for="SAPMaterial" class="font-weight-bold">SAP Material :</label>
+                        <input required type="text" name="SAPMaterial" class="form-control font-weight-bold text-success" value="{{SAPMaterial}}" />
+
+                    </div>
+                </div>
+            </div>
+
+            {{! Second Card }}
+            <div class="col-sm mb-4">
+                <div class="card h-100">
+
+                    <div class="card-header">
+                        Quantity Information
+                    </div>
+                    <div class="card-body">
+
+                        <label for="Quantity" class="font-weight-bold">Total Pieces</label>
+                        <input required type="number" name="Quantity" class="form-control font-weight-bold text-success" value="{{Quantity}}" />
+                        <br />
+                        <label for="quantityPerBox" class="font-weight-bold">Quantity Per
+                            Box</label>
+                        <input required type="number" name="quantityPerBox" class="form-control font-weight-bold text-success" />
+
+                        <br />
+
+                        <button type="submit" class="btn btn-primary ">Submit</button>
+                        
+                        {{!-- <span class="float-right" id="qrCode">{{{svgQR}}}</span> --}}
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm mb-4">
+                <div class="card h-100" >
+                    <div class="card-header">
+                        Details
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><span class="font-weight-bold text-success">{{"Work Order Type"}} - {{"Customer Name"}}</span></li>
+                        <li class="list-group-item"><span class="font-weight-bold">In:</span> <span class="font-weight-bold text-success">  {{Status}}</span> </li>
+                        <li class="list-group-item"><span class="font-weight-bold">Press:</span> <span class="font-weight-bold text-success">  {{Press}}</span></li>
+                        <li class="list-group-item"><span class="font-weight-bold">Priority:</span> <span class="font-weight-bold text-success">  {{"Press Priority"}}</span></li>
+                        <li class="list-group-item"><span class="font-weight-bold">Due Date:</span> <span class="font-weight-bold text-success">  {{"Due Date"}}</span></li>
+                        <li class="list-group-item"><span class="font-weight-bold">CSR:</span> <span class="font-weight-bold text-success">  {{CSR}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+{{!-- {{#each itemInformation}}
+
+<br />{{@key}}:
+{{this}}
+
+{{/each}} --}}

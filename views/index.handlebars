@@ -1,0 +1,195 @@
+{{!-- file button style --}}
+<style>
+  .file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+  }
+
+  .file-input label {
+    display: inline-block;
+    position: relative;
+    width: 95px;
+    height: 30px;
+    border-radius: .2rem;
+    background: #007bff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: .875rem;
+    cursor: pointer;
+    transition: transform .2s ease-out;
+  }
+</style>
+
+<div class="row justify-content-md-center">
+  <div class="m-3">
+    <h4>{{todaysDate}}</h4>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-md-6 mx-auto no-print">
+    <div class="card h-100 text-center">
+      <h1 class="display-4 m-3">Xymo Print Production List</h1>
+
+    </div>
+  </div>
+
+  <div class="col-md-6 mx-auto">
+    <div class="card h-100 no-print">
+      <div class="card-body">
+        <form action="/showOnly" method="GET">
+          <label for="showOnly">Select Department</label>
+          <select name="showOnly" class="form-control form-select form-select-sm" aria-label=".form-select-sm example"
+            onchange="this.form.submit()" required>
+            <option value=""></option>
+            <option value="Scheduling">Scheduling</option>
+            <option value="Assign CSR">Assign CSR</option>
+            <option value="Preflight Items">Preflight Items</option>
+            <option value="Proofing">Proofing</option>
+            <option value="Out for Approval">Out for Approval</option>
+            <option value="Prepress">Prepress</option>
+            <option value="Press">Press</option>
+            <option value="FoldGlue">FoldGlue</option>
+            <option value="Die Cutting">Die Cutting</option>
+            <option value="Finishing">Finishing</option>
+            <option value="Inspection">Inspection</option>
+            <option value="Shipping">Shipping</option>
+            <option value="Master Order Entry">Master Order Entry</option>
+          </select>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+{{!-- Orders Tables --------------------------------------------------------------}}
+
+
+<div class="row">
+
+
+
+  {{! External }}
+
+  <div class="col-sm">
+
+    <div class="card">
+
+      <div class="card-header text-center text-white bg-success">
+        <h4>External</h4>
+      </div>
+      <div class="card-body">
+
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">WO #</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Status</th>
+              <th scope="col">Items</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Due Date</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            {{#each external}}
+            <tr>
+              <td>
+
+                <a href="/order/{{"Work Order #"}}" class="badge badge-pill badge-success" 
+                {{!-- REMEMBER! newwindow and _blank are different --}}
+                {{!-- newwindow refreshes the already opened window --}}
+                {{!-- _blank opens a new window everytime --}}
+                  onclick="window.open('/order/{{"Work Order #"}}','_blank','width=800,height=800,left=25,top=100');return false;">
+                  {{"Work Order #"}}
+                </a>
+
+              </td>
+
+              <td>{{"Customer Name"}}</td>
+
+              <td>{{Status}}</td>
+
+
+              <td>{{items.length}}</td>
+              <td>{{"Press Priority"}}</td>
+              <td>{{"Due Date"}}</td>
+
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+
+  {{! Internal }}
+
+  <br />
+
+  <div class="col-sm">
+
+    <div class="card">
+
+      <div class="card-header text-center text-white bg-info">
+        <h4>Internal</h4>
+      </div>
+      <div class="card-body">
+
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">WO #</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Status</th>
+              <th scope="col">Items</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Due Date</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {{#each internal}}
+            <tr>
+              <td>
+
+                <a href="/order/{{"Work Order #"}}" class="badge badge-pill badge-info"
+                  onclick="window.open('/order/{{"Work Order #"}}','_blank','width=800,height=800,left=25,top=100');return false;">
+                  {{"Work Order #"}}
+                </a>
+
+              </td>
+
+
+
+              <td>{{"Customer Name"}}</td>
+
+              <td>{{Status}}</td>
+              <td>{{items.length}}</td>
+              <td>{{"Press Priority"}}</td>
+              <td>{{"Due Date"}}</td>
+            </tr>
+
+            {{/each}}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,49 @@
+<div class="card">
+
+  <div class="card-header text-center">
+    <h4>{{"Customer Name"}}</h4>
+    <td>{{{test}}}</td>
+  </div>
+
+  <div class="card-body">
+
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">QR</th>
+          <th scope="col">Item #</th>
+          <th scope="col">Description</th>
+          <th scope="col">SAP</th>
+          <th scope="col">Quantity</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each items}}
+        <tr>
+
+          <td>{{{QRCode}}}</td>
+          <td>
+            <a 
+          class="font-weight-bold text-primary" 
+          href="/labelCreator/{{'Item #'}}"   
+          {{!-- REMEMBER! newwindo and _blank are different  --}}
+          {{!-- newwindow refreshes the already opened window --}}
+          {{!-- _blank opens a new window everytime --}}
+          onclick="window.open('/labelCreator/{{'Item #'}}','newwindow','width=1000,height=800,left=875,top=100,menubar=yes');return false;"
+          >{{'Item #'}}     
+          
+          </a>
+          </td>
+
+          <td>{{Description}}</td>
+          <td>{{SAPMaterial}}</td>
+          <td>{{Quantity}}</td>
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+</div>

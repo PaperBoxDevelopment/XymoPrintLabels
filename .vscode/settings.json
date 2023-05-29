@@ -1,0 +1,67 @@
+{
+    "todo-tree.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "white",
+        "background": "cyan",
+        "opacity": 50,
+        "iconColour": "yellow"
+
+    },
+    "todo-tree.customHighlight": {
+        "FIXME": {
+            "foreground": "black",
+            "background": "yellow",
+            "iconColour": "yellow",
+            "icon": "arrow-right"
+        },
+        "DONE": {
+            "foreground": "white",
+            "background": "green",
+            "iconColour": "green",
+            "icon": "check"
+        },
+        "middleware": {
+            "foreground": "white",
+            "background": "green",
+            "iconColour": "orange",
+            "icon": "tools"
+        }
+    },
+    "todo-tree.showCountsInTree": true,
+    "todo-tree.statusBar": "total",
+    "todo-tree.highlightDelay": 200,
+    "todo-tree.highlights.customHighlight": {
+        "FIXME": {
+            "foreground": "black",
+            "background": "yellow",
+            "iconColour": "yellow",
+            "icon": "arrow-right"
+        },
+        "DONE": {
+            "foreground": "white",
+            "background": "green",
+            "iconColour": "green",
+            "icon": "check"
+        },
+        "middleware": {
+            "foreground": "white",
+            "background": "green",
+            "iconColour": "orange",
+            "icon": "tools"
+        }
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "alert",
+        "type": "text",
+        "foreground": "white",
+        "background": "cyan",
+        "opacity": 50,
+        "iconColour": "yellow"
+    },
+    "todo-tree.highlights.highlightDelay": 200,
+    "todo-tree.tree.showCountsInTree": true,
+    "todo-tree.general.statusBar": "total",
+    "inline-bookmarks.view.showVisibleFilesOnly": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": true
+}

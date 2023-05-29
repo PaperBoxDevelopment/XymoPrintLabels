@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+  <div class="container">
+    <a class="navbar-brand" href="/">Production</a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+
+      <ul class="navbar-nav ml-auto">
+
+
+        {{!-- Update Database --}}
+        <form action="/updateDatabase" method="post" enctype="multipart/form-data" class="form-inline my-2 my-lg-0">
+
+
+          <!-- Small modal -->
+          <button type="button" class="btn btn-sm btn-outline-light my-2 my-sm-0 mr-3" data-toggle="modal"
+            data-target=".bd-example-modal-sm">Update Database</button>
+
+          <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog  modal-dialog-centered">
+              <div class="modal-content">
+
+                <div class="card">
+
+                  <div class="card-header">
+                    <h4>Update Database</h4>
+                  </div>
+                  <div class="card-body">
+
+                    <a class="btn btn-info btn-sm mb-3 "
+                      href="https://approvals.xymoprint.com/portal.cgi?asset=download_file&url=cloudflow%3A%2F%2FPP_FILE_STORE%2FScheduling%2FXYMO_Prod_Items.csv">1.
+                      Download Xymo CSV</a>
+
+
+
+                    <div class="file-input form-control-file mb-3">
+                      <input type="file" id="file" class="file" name="csv" required>
+                      <label for="file">2. Select File</label>
+                    </div>
+
+                    <button class="btn btn-success btn-sm mb-3 " type="submit">3. Update Database</button>
+                    <br>
+                    <span class="font-italic float-right">Last Update: <span class="font-weight-bold">{{updateStamp}}
+                      </span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        
+
+        {{!-- Label Creator --}}
+        <form action="/labelCreator" method="GET" class="form-inline my-2 my-lg-0">
+          <input class="form-control form-control-sm mr-sm-2" type="text" name="itemNumber"
+            onchange="this.form.submit()" placeholder="Scan/Type Item #" required>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,11 @@
+{{!-- This first #if will catch and show errors from Passport Log In! --}}
+{{#if error}}
+  <div class="alert alert-danger no-print">{{error}}</div>
+{{/if}}
+
+{{!-- This #each will loop the errors in the Register Form --}}
+{{#each errors}}
+  <div class="alert alert-danger no-print">{{text}}</div>
+{{else}}
+
+{{/each}}
