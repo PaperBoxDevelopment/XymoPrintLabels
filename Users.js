@@ -1,5 +1,5 @@
 module.exports = (app, dbs) => {
-
+console.log('test');
 
     const bcrypt = require('bcryptjs');
     const passport = require('passport');
